@@ -28,27 +28,44 @@ function getRandomWord() {
     return answerWords[randomIndex];
 };
 
-//ChosenWord in hidden form (with astericks)
-function HiddenWord() {
-    return hiddenForm(chosenWord);
-};
-
 var chosenWord = getRandomWord();
-var hiddenWord = ""
+// var hiddenName = ""
 var correctGuesses = 0;
 var guessesLeft = 6;
 var correctLetters = [];
 var wrongLetters = [];
 
+// var element = document.createElement('div');
+// element.id = 'testqq';
+// var el = document.getElementById('testqq');
+
+//ChosenWord in hidden form (with astericks)
+function hiddenWord() {
+    return hiddenForm(chosenWord);
+};
+var hiddenName = hiddenWord();
+console.log (hiddenName);
+
+function displayHiddenName() {
+document.getElementById("artistName").innerText = hiddenName.hiddenWord();
+};
+
 //Reset Page to start new game
 function reset() {
     var chosenWord = getRandomWord();
-    var hiddenWord = "";
+    var hiddenWord = displayHiddenName (); 
     var correctGuesses = 0;
     var guessesLeft = 6;
     var correctLetters = [];
     var wrongLetters = [];
 };
+document.getElementById("scoreBoard").innerText = guessesLeft;
+
+function guessing () {
+    var guess = event.key;
+    guessesLeft--;
+
+}
 
 
 // var element = document.createElement("h1").innerHTML;
