@@ -9,7 +9,6 @@
     crossorigin="anonymous">
     <link rel="resetsheet" href="assets/css/reset.css">
     <link rel="stylesheet" src="assets/css/style.css">
-    <script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
@@ -27,9 +26,15 @@
         </div>
 
         <div class="row" id="prevGuesses">
+            <div class = "col-md-12">
+                <h1 id=lettersGuessed></h1>
+            </div>
         </div>
 
-        <div class="row" id="scoreBoard">
+        <div class="row">
+            <div class = "col-md-12">
+                <h2 id="scoreBoard"></h2>
+            </div>
         </div>
 
         <div class="row" id="hangmanStand">
@@ -70,6 +75,7 @@
         <!-- </div> -->
 
     </div>
+    <script src="assets/javascript/game.js"></script>
     
 </body>
 </html>

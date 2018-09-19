@@ -27,9 +27,9 @@ function getRandomWord() {
     var randomIndex = getRandomIndex();
     return answerWords[randomIndex];
 };
-
+// initialization
 var chosenWord = getRandomWord();
-// var hiddenName = ""
+var asteriskWord = hiddenWord();
 var correctGuesses = 0;
 var guessesLeft = 6;
 var correctLetters = [];
@@ -43,29 +43,46 @@ var wrongLetters = [];
 function hiddenWord() {
     return hiddenForm(chosenWord);
 };
-var hiddenName = hiddenWord();
-console.log (hiddenName);
+
 
 function displayHiddenName() {
-document.getElementById("artistName").innerText = hiddenName.hiddenWord();
+    document.getElementById("artistName").innerText = asteriskWord;
 };
 
 //Reset Page to start new game
 function reset() {
-    var chosenWord = getRandomWord();
-    var hiddenWord = displayHiddenName (); 
-    var correctGuesses = 0;
-    var guessesLeft = 6;
-    var correctLetters = [];
-    var wrongLetters = [];
+    chosenWord = getRandomWord();
+    asteriskWord = hiddenWord();
+    correctGuesses = 0;
+    guessesLeft = 6;
+    correctLetters = [];
+    wrongLetters = [];
 };
-document.getElementById("scoreBoard").innerText = guessesLeft;
 
-function guessing () {
-    var guess = event.key;
-    guessesLeft--;
+// function guessing() {
+//     var guess = event.key;
+//     document.getElementById("lettersGuessed").innerHTML = "The pressed key was: " + guess;
+//     guessesLeft -= 1;
+//     return guess;
 
+// };
+
+
+displayHiddenName()
+
+document.onkeyup = function(event) {
+    console.log(event.key)
+    document.getElementById("lettersGuessed").innerText = event.key;
+    
+    
 }
+if (guessesLeft < 6) {
+    wrongLetters.push(event.key)
+    guessesLeft -= 1;
+    
+    }
+document.getElementById("scoreBoard").innerText = "You have " + guessesLeft + " guesses left.";
+
 
 
 // var element = document.createElement("h1").innerHTML;
