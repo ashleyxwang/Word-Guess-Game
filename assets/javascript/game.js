@@ -73,17 +73,16 @@ displayHiddenName()
 document.onkeyup = function(event) {
     console.log(event.key)
     document.getElementById("lettersGuessed").innerText = event.key;
-    
-    
-}
-if (guessesLeft < 6) {
-    wrongLetters.push(event.key)
+    return event.key;
+};
+
+for (let index = 6; index > 1; index--) {
     guessesLeft -= 1;
-    
-    }
+};
+
 document.getElementById("scoreBoard").innerText = "You have " + guessesLeft + " guesses left.";
-
-
+//while guess !== letters in chosen word, add letter to wrongLetters []
+//while guess === letters in chosen word, replace asterisk and add to correctLetters []
 
 // var element = document.createElement("h1").innerHTML;
 
